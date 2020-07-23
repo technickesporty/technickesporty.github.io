@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Technické Sporty</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/material-components-web@5.0.0/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-components-web@5.0.0/dist/material-components-web.min.css">
+
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-database.js"></script>
+
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <script src="/js/common.js" defer></script>
+    <script src="/js/konzumace-view.js" defer></script>
+</head>
+
+<body>
+    <header class="mdc-top-app-bar mdc-top-app-bar--fixed" id="app-bar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Otevřit menu" onclick="appDrawer.open = !appDrawer.open;">menu</button>
+                <span class="mdc-top-app-bar__title">Sortiment</span>
+            </section>
+        </div>
+    </header>
+
+    <aside class="mdc-drawer mdc-drawer--modal" id="app-drawer">
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list">
+                <a class="mdc-list-item" href="/dashboard/">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+                    <span class="mdc-list-item__text">Domů</span>
+                </a>
+                <a class="mdc-list-item" href="/dashboard/sortiment.html">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">local_drink</i>
+                    <span class="mdc-list-item__text">Sortiment</span>
+                </a>
+                <a class="mdc-list-item" href="/dashboard/hoste.html">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">supervisor_account</i>
+                    <span class="mdc-list-item__text">Hosté</span>
+                </a>
+                <a class="mdc-list-item mdc-list-item--activated" href="/dashboard/konzumace.html" aria-current="page" tabindex="0">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">local_bar</i>
+                    <span class="mdc-list-item__text">Konzumace hostů</span>
+                </a>
+                <a class="mdc-list-item" href="/dashboard/bar.html">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">sports_bar</i>
+                    <span class="mdc-list-item__text">Objednávky na baru</span>
+                </a>
+                <a class="mdc-list-item" onclick="signout();">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">exit_to_app</i>
+                    <span class="mdc-list-item__text">Odhlásit se</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="mdc-drawer-scrim"></div>
+
+    <div class="mdc-snackbar" id="snackbar">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label" role="status" aria-live="polite">
+
+            </div>
+            <div class="mdc-snackbar__actions">
+                <button type="button" class="mdc-button mdc-snackbar__action">
+              <div class="mdc-button__ripple"></div>
+              <span class="mdc-button__label">OK</span>
+            </button>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content" id="main-content">
+        <div class="mdc-top-app-bar--fixed-adjust">
+            <div class="action-card">
+                <div class="mdc-typography--headline3 item">Konzumace hosta <span id="guest-name"></span></div>
+            </div>
+
+            <div class="action-card action-card-borderless">
+                <div class="mdc-data-table" id="sortiment">
+                    <div class="mdc-data-table__table-container">
+                        <table class="mdc-data-table__table">
+                            <thead>
+                                <tr class="mdc-data-table__header-row">
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Produkt</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Počet</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Cena za kus</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Cena celkem</th>
+                                </tr>
+                            </thead>
+                            <tbody class="mdc-data-table__content">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-card">
+                <div class="mdc-typography--headline5 item">Celkem: <span id="price"></span></div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

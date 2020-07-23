@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Product+Sans|Roboto|Material+Icons&display=swap");
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+*:not(.material-icons) {
+    font-family: "Product Sans", "Roboto", Arial, Helvetica, sans-serif !important;
+}
+
+#app-bar {
+    top: 0;
+    --mdc-theme-primary: white;
+    --mdc-theme-on-primary: black;
+    color: black;
+}
+
+.login-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    .login-card {
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 300px;
+        .header {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .textfields {
+            .mdc-text-field {
+                margin: 10px 0px;
+                width: 100%;
+            }
+            text-align: center;
+        }
+        .footer {
+            margin-top: 10px;
+            .submit {
+                border-radius: 8px;
+                width: 100%;
+            }
+        }
+        .error {
+            margin-top: 20px;
+            color: red;
+        }
+    }
+}

@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css?family=Product+Sans|Roboto|Material+Icons&display=swap");
+body {
+  margin: 0;
+}
+
+*:not(.material-icons) {
+  font-family: "Product Sans", "Roboto", Arial, Helvetica, sans-serif !important;
+}
+
+#app-bar {
+  top: 0;
+  --mdc-theme-primary: white;
+  --mdc-theme-on-primary: black;
+  color: black;
+}
+
+#app-bar .mdc-top-app-bar__title {
+  opacity: 0;
+  -webkit-transition: opacity 200ms linear;
+  transition: opacity 200ms linear;
+}
+
+#app-bar.mdc-top-app-bar--fixed-scrolled .mdc-top-app-bar__title {
+  opacity: 1;
+}
+
+.index-card {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+.action-card {
+  padding: 10px 20px;
+  width: calc(100% - 40px);
+  border-radius: 8px;
+  max-width: 750px;
+  margin: 20px auto;
+}
+
+.action-card.action-card-borderless {
+  padding: 0 20px;
+}
+
+.action-card .item {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.action-card .item.item-left {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.action-card .item.item-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.action-card .item.item-right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+#sortiment,
+#guests {
+  width: 100%;
+  border-radius: 8px;
+}
+
+#sortiment .mdc-data-table__cell,
+#guests .mdc-data-table__cell {
+  text-align: left;
+}
+
+#sortiment .mdc-data-table__cell.clickable,
+#guests .mdc-data-table__cell.clickable {
+  cursor: pointer;
+}
+
+#sortiment .tip,
+#guests .tip {
+  margin: 10px;
+}
+
+#guest-select .mdc-select__anchor,
+#sortiment-select .mdc-select__anchor {
+  width: 100%;
+}
+/*# sourceMappingURL=dashboard.css.map */

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Technické sporty</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/material-components-web@5.0.0/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-components-web@5.0.0/dist/material-components-web.min.css">
+
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-database.js"></script>
+
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="/js/login.js" defer></script>
+</head>
+
+<body>
+
+    <div class="login-cont">
+        <form class="mdc-card login-card" onsubmit="return login();">
+            <div class="header">
+                <div class="mdc-typography--headline4 title">Přihlaste se.</div>
+            </div>
+            <div class="textfields">
+                <label class="mdc-text-field mdc-text-field--outlined email">
+                    <input type="email" class="mdc-text-field__input" aria-labelledby="email-label" required>
+                    <span class="mdc-notched-outline">
+                      <span class="mdc-notched-outline__leading"></span>
+                      <span class="mdc-notched-outline__notch">
+                        <span class="mdc-floating-label" id="email-label">Email</span>
+                      </span>
+                      <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                  </label>
+                <label class="mdc-text-field mdc-text-field--outlined password">
+                    <input type="password" class="mdc-text-field__input" aria-labelledby="password-label" required>
+                    <span class="mdc-notched-outline">
+                      <span class="mdc-notched-outline__leading"></span>
+                      <span class="mdc-notched-outline__notch">
+                        <span class="mdc-floating-label" id="password-label">Heslo</span>
+                      </span>
+                      <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                  </label>
+            </div>
+            <div class="footer">
+                <button class="mdc-button mdc-button--raised submit">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Přihlásit se</span>
+                  </button>
+                <button class="mdc-button forgot" type="button" onclick="forgot()">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Zapomenuté heslo</span>
+                  </button>
+            </div>
+            <div class="error" style="display: none;"></div>
+        </form>
+    </div>
+
+</body>
+
+</html>
